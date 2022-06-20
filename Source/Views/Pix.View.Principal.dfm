@@ -1,4 +1,4 @@
-object QrCode: TQrCode
+object PixViewPrincipal: TPixViewPrincipal
   Left = 0
   Top = 0
   BorderStyle = bsNone
@@ -11,7 +11,7 @@ object QrCode: TQrCode
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  Position = poDesktopCenter
+  Position = poScreenCenter
   PixelsPerInch = 96
   TextHeight = 13
   object pnContent: TPanel
@@ -22,7 +22,6 @@ object QrCode: TQrCode
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitHeight = 486
     object QRCode: TImage
       Left = 213
       Top = 135
@@ -3422,6 +3421,30 @@ object QrCode: TQrCode
         140050014005001400500140050014005001400500140050014005001401FFD9}
       Stretch = True
     end
+    object Label1: TLabel
+      Left = 152
+      Top = 16
+      Width = 24
+      Height = 13
+      Caption = 'Valor'
+    end
+    object Edit1: TEdit
+      Left = 152
+      Top = 32
+      Width = 121
+      Height = 21
+      TabOrder = 0
+      Text = 'Edit1'
+    end
+    object Button1: TButton
+      Left = 296
+      Top = 30
+      Width = 75
+      Height = 25
+      Caption = 'Button1'
+      TabOrder = 1
+      OnClick = Button1Click
+    end
   end
   object pnHeader: TPanel
     Left = 0
@@ -3434,11 +3457,10 @@ object QrCode: TQrCode
     ParentBackground = False
     TabOrder = 1
     object Image1: TImage
-      Left = 0
-      Top = 0
-      Width = 257
-      Height = 65
-      Align = alLeft
+      Left = 7
+      Top = 15
+      Width = 181
+      Height = 34
       Picture.Data = {
         0B546478504E47496D61676589504E470D0A1A0A0000000D4948445200000C3A
         000001CE0806000000C3D588540000000467414D410000B18E7CFB5193000000
@@ -5786,7 +5808,6 @@ object QrCode: TQrCode
         2C67EC83383C43678A6CCE8CF068DFA9CEC8A916D33EA2F50000000000A68D5D
         BB7645972F5FFED5FF03F7E3903C0CE0F2C60000000049454E44AE426082}
       Stretch = True
-      ExplicitTop = -6
     end
     object btnClose: TcxButton
       Left = 793
@@ -5856,7 +5877,6 @@ object QrCode: TQrCode
     BevelOuter = bvNone
     ParentBackground = False
     TabOrder = 2
-    ExplicitHeight = 486
     object btnConfig: TcxButton
       AlignWithMargins = True
       Left = 3
@@ -5894,7 +5914,6 @@ object QrCode: TQrCode
       SpeedButtonOptions.Flat = True
       TabOrder = 0
       OnClick = btnConfigClick
-      ExplicitHeight = 54
     end
   end
 end

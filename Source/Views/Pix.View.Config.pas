@@ -1,4 +1,4 @@
-unit TD.View.Config;
+unit Pix.View.Config;
 
 interface
 
@@ -22,12 +22,12 @@ uses
   dxGDIPlusClasses,
   Vcl.StdCtrls,
   cxButtons,
-  TD.Factories.QrCode,
+  Pix.Factory.Config,
   Vcl.Buttons,
   System.UITypes;
 
 type
-  Tconfig = class(TForm)
+  TPixViewConfig = class(TForm)
     Panel: TPanel;
     btnReturn: TcxButton;
     edChave: TEdit;
@@ -40,6 +40,7 @@ type
     procedure btnsalvarClick(Sender: TObject);
     procedure btnGerarClick(Sender: TObject);
     procedure btnReturnClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public                               
@@ -47,28 +48,34 @@ type
   end;
 
 var
-  config: Tconfig;
+  PixViewConfig: TPixViewConfig;
 
 implementation
 
 {$R *.dfm}
 
-procedure Tconfig.btnReturnClick(Sender: TObject);
+procedure TPixViewConfig.btnReturnClick(Sender: TObject);
 begin
   if MessageDlg('Deseja realmente voltar?', mtConfirmation, mbYesNo, 1) = mrYes then
     Close;
 end;
 
-procedure Tconfig.btnsalvarClick(Sender: TObject);
+procedure TPixViewConfig.btnsalvarClick(Sender: TObject);
 begin
-    TFactoryConfig
+  TFactoryConfig
     .New
     .Empresa(edEmpresa.Text)
     .Chave(edChave.Text)
     .Salvar;
 end;
 
-procedure Tconfig.btnGerarClick(Sender: TObject);
+procedure TPixViewConfig.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  Action := caFree;
+  PixViewConfig := nil;
+end;
+
+procedure TPixViewConfig.btnGerarClick(Sender: TObject);
 begin
   TFactoryConfig
     .New

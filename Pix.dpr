@@ -2,16 +2,17 @@ program Pix;
 
 uses
   Vcl.Forms,
-  TD.View.QrCode in '..\Source\Views\TD.View.QrCode.pas' {QrCode},
-  TD.Factories.QrCode in '..\Source\Factories\TD.Factories.QrCode.pas',
-  TD.View.Config in '..\Source\Views\TD.View.Config.pas' {config};
+  Pix.View.Config in 'Source\Views\Pix.View.Config.pas' {PixViewConfig},
+  Pix.View.Principal in 'Source\Views\Pix.View.Principal.pas' {PixViewPrincipal},
+  Pix.Factory.Config in 'Source\Factory\Pix.Factory.Config.pas',
+  Pix.Factory.Pix in 'Source\Factory\Pix.Factory.Pix.pas',
+  ACBrDelphiZXingQRCode in 'Source\ACBrDelphiZXingQRCode.pas';
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  Application.CreateForm(TQrCode, QrCode);
-  Application.CreateForm(Tconfig, config);
+  Application.CreateForm(TPixViewPrincipal, PixViewPrincipal);
   Application.Run;
 end.

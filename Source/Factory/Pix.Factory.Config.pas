@@ -1,4 +1,4 @@
-unit TD.Factories.QrCode;
+unit Pix.Factory.Config;
 
 interface
 
@@ -17,7 +17,9 @@ type
 
     function Chave: string; overload;
     function Empresa: string; overload;
+    function Cidade: string; overload;
     function Chave(AValue: string) : iFactoryConfig; overload;
+    function Cidade(AValue: string) : iFactoryConfig; overload;
     function Empresa(AValue: string) : IFactoryConfig; overload;
     function Chave(var AValue: TEdit): iFactoryConfig; overload;
     function Empresa(var AValue: TEdit): IFactoryConfig; overload;
@@ -29,7 +31,9 @@ type
 
     FArquivo,
     FEmpresa,
+    FCidade,
     FChave: String;
+    procedure ForcarArquivo;
   public
     constructor Create;
     destructor Destroy; override;
@@ -40,8 +44,10 @@ type
 
     function Chave: string; overload;
     function Empresa: string; overload;
+    function Cidade: string; overload;
     function Chave(AValue: string): iFactoryConfig; overload;
     function Empresa(AValue: string): iFactoryConfig; overload;
+    function Cidade(AValue: string) : iFactoryConfig; overload;
     function Chave(var AValue: TEdit): iFactoryConfig; overload;
     function Empresa(var AValue: TEdit): iFactoryConfig; overload;
   end;
@@ -49,7 +55,7 @@ type
 implementation
 
 uses
-  TD.View.Config;
+  Pix.View.Config;
 
   { iFactoryConfig }
 
@@ -58,6 +64,7 @@ begin
   Result := Self;
   FChave := FIniFile.ReadString('configuracao', 'chave', '');
   FEmpresa := FIniFile.ReadString('configuracao', 'empresa', '');
+  FCidade := FIniFile.ReadString('configuracao', 'cidade', '');
 end;
 
 function TFactoryConfig.Chave: string;
@@ -77,13 +84,23 @@ begin
   AValue.Text := FChave;
 end;
 
+function TFactoryConfig.Cidade(AValue: string): iFactoryConfig;
+begin
+  Result := Self;
+  FCidade := AValue;
+end;
+
+function TFactoryConfig.Cidade: string;
+begin
+  Result := FCidade;
+end;
+
 constructor TFactoryConfig.Create;
 begin
   FArquivo := ExtractFilePath(Application.ExeName) + 'config.ini';
 
   if not FileExists(FArquivo) then
-    raise
-     Exception.Create('Arquivo de configuração inexistente');
+    ForcarArquivo;
 
   FIniFile := TIniFile.Create(FArquivo);
 end;
@@ -116,12 +133,26 @@ begin
 
   FIniFile.WriteString('configuracao', 'chave', FChave);
   FIniFile.WriteString('configuracao', 'empresa', FEmpresa);
+  FIniFile.WriteString('configuracao', 'cidade', FCidade);
 end;
 
 function TFactoryConfig.Empresa(var AValue: TEdit): iFactoryConfig;
 begin
   Result := Self;
   AValue.Text := FEmpresa;
+end;
+
+procedure TFactoryConfig.ForcarArquivo;
+var
+  LLocal : TextFile;
+begin
+  if not FileExists(FArquivo) then
+  begin
+    AssignFile(LLocal, FArquivo);
+    Rewrite(LLocal, FArquivo);
+    Append(LLocal);
+    Close(LLocal);
+  end;
 end;
 
 end.

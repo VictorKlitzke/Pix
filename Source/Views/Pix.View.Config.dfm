@@ -1,4 +1,4 @@
-object config: Tconfig
+object PixViewConfig: TPixViewConfig
   Left = 0
   Top = 0
   Align = alClient
@@ -12,6 +12,7 @@ object config: Tconfig
   ParentBiDiMode = False
   Position = poScreenCenter
   Scaled = False
+  OnClose = FormClose
   PixelsPerInch = 96
   TextHeight = 13
   object Panel: TPanel

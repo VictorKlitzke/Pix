@@ -37,12 +37,11 @@ object PixViewConfig: TPixViewConfig
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentFont = False
-      ExplicitWidth = 165
-      ExplicitHeight = 30
+      ExplicitTop = 16
     end
     object Label4: TLabel
       Left = 232
-      Top = 174
+      Top = 155
       Width = 56
       Height = 17
       Caption = 'EMPRESA'
@@ -55,7 +54,7 @@ object PixViewConfig: TPixViewConfig
     end
     object Label5: TLabel
       Left = 232
-      Top = 247
+      Top = 205
       Width = 39
       Height = 17
       Caption = 'CHAVE'
@@ -67,12 +66,25 @@ object PixViewConfig: TPixViewConfig
       ParentFont = False
     end
     object SpeedButton1: TSpeedButton
-      Left = 496
-      Top = 197
-      Width = 45
+      Left = 487
+      Top = 178
+      Width = 75
       Height = 21
       Caption = 'Gerar'
       OnClick = btnGerarClick
+    end
+    object Label1: TLabel
+      Left = 232
+      Top = 255
+      Width = 56
+      Height = 17
+      Caption = 'CIDADE'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentFont = False
     end
     object btnReturn: TcxButton
       Left = 0
@@ -108,7 +120,7 @@ object PixViewConfig: TPixViewConfig
     end
     object edChave: TEdit
       Left = 232
-      Top = 270
+      Top = 228
       Width = 241
       Height = 21
       Font.Charset = DEFAULT_CHARSET
@@ -120,17 +132,17 @@ object PixViewConfig: TPixViewConfig
       TabOrder = 1
     end
     object btnSalvar: TButton
-      Left = 496
-      Top = 269
-      Width = 45
-      Height = 24
+      Left = 487
+      Top = 277
+      Width = 75
+      Height = 23
       Caption = 'Salvar'
       TabOrder = 2
       OnClick = btnsalvarClick
     end
     object edEmpresa: TEdit
       Left = 232
-      Top = 197
+      Top = 178
       Width = 241
       Height = 21
       Font.Charset = DEFAULT_CHARSET
@@ -140,6 +152,19 @@ object PixViewConfig: TPixViewConfig
       Font.Style = []
       ParentFont = False
       TabOrder = 3
+    end
+    object edCidade: TEdit
+      Left = 232
+      Top = 278
+      Width = 241
+      Height = 21
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 4
     end
   end
 end

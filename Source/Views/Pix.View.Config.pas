@@ -37,6 +37,8 @@ type
     Label5: TLabel;
     SpeedButton1: TSpeedButton;
     edEmpresa: TEdit;
+    edCidade: TEdit;
+    Label1: TLabel;
     procedure btnsalvarClick(Sender: TObject);
     procedure btnGerarClick(Sender: TObject);
     procedure btnReturnClick(Sender: TObject);
@@ -66,6 +68,7 @@ begin
     .New
     .Empresa(edEmpresa.Text)
     .Chave(edChave.Text)
+    .Cidade(edCidade.Text)
     .Salvar;
 end;
 
@@ -81,7 +84,8 @@ begin
     .New
     .Carregar
     .Empresa(edEmpresa)
-    .Chave(edChave);
+    .Chave(edChave)
+    .Cidade(edCidade);
 end;
 
 end.

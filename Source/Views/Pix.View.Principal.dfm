@@ -3421,29 +3421,34 @@ object PixViewPrincipal: TPixViewPrincipal
         140050014005001400500140050014005001400500140050014005001401FFD9}
       Stretch = True
     end
-    object Label1: TLabel
-      Left = 152
-      Top = 16
-      Width = 24
-      Height = 13
-      Caption = 'Valor'
-    end
-    object Edit1: TEdit
-      Left = 152
-      Top = 32
-      Width = 121
-      Height = 21
-      TabOrder = 0
-      Text = 'Edit1'
+    object Label2: TLabel
+      Left = 213
+      Top = 5
+      Width = 39
+      Height = 16
+      Caption = 'VALOR'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
     end
     object Button1: TButton
-      Left = 296
-      Top = 30
+      Left = 485
+      Top = 26
       Width = 75
-      Height = 25
-      Caption = 'Button1'
-      TabOrder = 1
+      Height = 23
+      Caption = 'Gerar Valor'
+      TabOrder = 0
       OnClick = Button1Click
+    end
+    object edValor: TEdit
+      Left = 213
+      Top = 27
+      Width = 241
+      Height = 21
+      TabOrder = 1
     end
   end
   object pnHeader: TPanel

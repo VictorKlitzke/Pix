@@ -33,9 +33,9 @@ type
     QRCode: TImage;
     btnClose: TcxButton;
     btnConfig: TcxButton;
-    Edit1: TEdit;
     Button1: TButton;
-    Label1: TLabel;
+    edValor: TEdit;
+    Label2: TLabel;
     procedure btnCloseClick(Sender: TObject);
     procedure btnConfigClick(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -68,14 +68,16 @@ procedure TPixViewPrincipal.Button1Click(Sender: TObject);
 var
   LConfig: iFactoryConfig;
 begin
-  LConfig := TFactoryConfig.New.Carregar;
+  LConfig := TFactoryConfig
+    .New.
+    Carregar;
 
   TPixFactory
     .New
     .Chave(LConfig.Chave)
     .Beneficiario(LConfig.Empresa)
     .CidadeBeneficiario(LConfig.Cidade)
-    .Valor(Edit1.Text)
+    .Valor(edValor.Text)
     .Imagem(QRCode.Picture)
     .Gerar;
 end;

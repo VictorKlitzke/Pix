@@ -233,12 +233,12 @@ begin
   LTamanhoBeneficiario := Length(FBeneficiario);
   if  (LTamanhoBeneficiario > 0) and (LTamanhoBeneficiario < 10) then
     LLinkPix := LLinkPix + '59' + '0' + IntToStr(LTamanhoBeneficiario) + FBeneficiario
-  else if (LTamanhoBeneficiario >= 10) and (LTamanhoBeneficiario <= 25) then
+  else if (LTamanhoBeneficiario >= 10) and (LTamanhoBeneficiario <= 65) then
     LLinkPix := LLinkPix + '59' + IntToStr(LTamanhoBeneficiario) + FBeneficiario
-  else if (LTamanhoBeneficiario > 25) then
+  else if (LTamanhoBeneficiario > 65) then
     raise Exception.Create('O Beneficiário não deve ultrapassar 25 caracteres!')
   else
-    raise Exception.Create('Você deve cadastrar um Beneficiário com tamanho máximo de 25 caracteres!');
+    raise Exception.Create('Você deve cadastrar um Beneficiário com tamanho máximo de 65 caracteres!');
 
   LTamanhoCidade := Length(FCidadeBeneficiario);
   if (LTamanhoCidade > 0) and (LTamanhoCidade <= 15) then

@@ -1,5 +1,3 @@
-{$I ACBr.inc}
-
 unit ACBrDelphiZXingQRCode;
 
 // ZXing QRCode port to Delphi, by Debenu Pty Ltd

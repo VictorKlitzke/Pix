@@ -23,6 +23,7 @@ type
     function Empresa(AValue: string) : IFactoryConfig; overload;
     function Chave(var AValue: TEdit): iFactoryConfig; overload;
     function Empresa(var AValue: TEdit): IFactoryConfig; overload;
+    function Cidade(var AValue: TEdit): iFactoryConfig; overload;
   end;
 
   TFactoryConfig = class(TInterfacedObject, iFactoryConfig)
@@ -50,6 +51,7 @@ type
     function Cidade(AValue: string) : iFactoryConfig; overload;
     function Chave(var AValue: TEdit): iFactoryConfig; overload;
     function Empresa(var AValue: TEdit): iFactoryConfig; overload;
+    function Cidade(var AValue: TEdit): iFactoryConfig; overload;
   end;
 
 implementation
